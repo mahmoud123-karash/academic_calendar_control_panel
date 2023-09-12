@@ -48,6 +48,7 @@ class DrawerWidget extends StatelessWidget {
                     width: 100,
                     height: 100,
                     decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(100)),
                       image: DecorationImage(
                         image: AssetImage(Assets.Cal2),
                       ),
@@ -178,7 +179,7 @@ class DrawerWidget extends StatelessWidget {
               trailing: GestureDetector(
                 onTap: () {},
                 child: const CircleAvatar(
-                  backgroundImage: AssetImage('images/pro.png'),
+                  backgroundImage: AssetImage(Assets.Pro),
                 ),
               ),
             ),

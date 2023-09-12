@@ -29,7 +29,7 @@ class _ItemBannerWidgetState extends State<ItemBannerWidget> {
       child: Stack(
         children: [
           Container(
-            height: widget.size.width < 900 ? 200 : 250,
+            height: 200,
             width: widget.size.width < 900 ? widget.size.width / 1.7 : 400,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
