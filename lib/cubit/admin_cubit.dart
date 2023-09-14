@@ -497,4 +497,10 @@ class AdminCubit extends Cubit<AdminStates> {
       }
     });
   }
+
+  void logout() {
+    pickedimage = null;
+    webimage = Uint8List(8);
+    emit(SuccessLogoutState());
+  }
 }

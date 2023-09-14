@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:academic_calendar/cubit/admin_cubit.dart';
 import 'package:academic_calendar/generated/l10n.dart';
 import 'package:academic_calendar/layout/widgets/listTile_widget.dart';
@@ -37,7 +39,7 @@ class DrawerWidget extends StatelessWidget {
               color: isdark ? blackColor : Colors.grey),
         ),
       ),
-      child: Column(
+      child: ListView(
         children: [
           DrawerHeader(
             margin: const EdgeInsets.all(50),
@@ -60,6 +62,9 @@ class DrawerWidget extends StatelessWidget {
                       color: isdark ? Colors.black : Colors.white,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
+                      fontFeatures: const <FontFeature>[
+                        FontFeature.enable('aaaa')
+                      ],
                     ),
                   ),
                 ],
@@ -159,6 +164,7 @@ class DrawerWidget extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () {
+                        AdminCubit.get(context).logout();
                         cache_helper.removeData(key: 'uid');
                         navigatorToAndfinish(context, const LoginScreen());
                       },
@@ -171,7 +177,9 @@ class DrawerWidget extends StatelessWidget {
             text: S.of(context).logout,
             icon: Icons.logout_rounded,
           ),
-          const Spacer(),
+          const SizedBox(
+            height: 15,
+          ),
           Padding(
             padding: const EdgeInsets.only(bottom: 15, left: 10, right: 10),
             child: ListTile(

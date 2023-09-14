@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:academic_calendar/generated/l10n.dart';
 import 'package:academic_calendar/shared/constants.dart';
 import 'package:flutter/material.dart';
@@ -21,11 +23,16 @@ class DateWidget extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.w600,
+                fontFeatures: <FontFeature>[FontFeature.enable('aaaa')],
               ),
             ),
             Text(
               date,
-              style: TextStyle(color: myColor, fontSize: 20),
+              style: TextStyle(
+                color: myColor,
+                fontSize: 20,
+                fontFeatures: const <FontFeature>[FontFeature.enable('aaaa')],
+              ),
             ),
           ],
         ),

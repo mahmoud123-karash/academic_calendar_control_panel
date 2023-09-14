@@ -7,13 +7,20 @@ class EventImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: size.width > 700 ? 500 : 250,
-      height: size.width > 700 ? 300 : 150,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        image: DecorationImage(image: NetworkImage(image), fit: BoxFit.cover),
-      ),
+    return Row(
+      children: [
+        Container(
+          width: size.width >= 600 ? 550 : size.width - 80,
+          height: size.width > 600 ? 300 : 250,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            image: DecorationImage(
+              image: NetworkImage(image),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

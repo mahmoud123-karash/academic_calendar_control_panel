@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:academic_calendar/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +38,10 @@ class TextFieldWidget extends StatelessWidget {
         controller: controller,
         decoration: InputDecoration(
           labelText: name,
-          labelStyle: const TextStyle(fontSize: 25),
+          labelStyle: const TextStyle(
+            fontSize: 18,
+            fontFeatures: <FontFeature>[FontFeature.enable('aaaa')],
+          ),
           prefixIcon: Icon(icon),
         ),
       ),

@@ -1,8 +1,11 @@
+import 'dart:ui';
+
 import 'package:academic_calendar/cubit/admin_cubit.dart';
 import 'package:academic_calendar/cubit/admin_states.dart';
 import 'package:academic_calendar/generated/l10n.dart';
 import 'package:academic_calendar/layout/widgets/event_item_widget.dart';
 import 'package:academic_calendar/modules/add_event_screen/widgets/textfield_widget.dart';
+import 'package:academic_calendar/shared/components.dart';
 import 'package:academic_calendar/shared/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -61,7 +64,7 @@ class _AcademicYearScreenState extends State<AcademicYearScreen> {
                         padding: const EdgeInsets.all(8.0),
                         child: TextFieldWidget(
                             size: size,
-                            name: 'العام الدراسي',
+                            name: 'العام',
                             icon: Icons.search,
                             controller: searchController,
                             lines: 1,
@@ -73,15 +76,24 @@ class _AcademicYearScreenState extends State<AcademicYearScreen> {
                     MaterialButton(
                       color: Colors.grey[300],
                       onPressed: () {
-                        isSearch = true;
-                        AdminCubit.get(context)
-                            .getSearchEvents(year: searchController.text);
+                        if (searchController.text != '') {
+                          isSearch = true;
+                          AdminCubit.get(context)
+                              .getSearchEvents(year: searchController.text);
+                        } else {
+                          myToast(message: S.of(context).searchm);
+                        }
                       },
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
                           S.of(context).search,
-                          style: TextStyle(color: myColor),
+                          style: TextStyle(
+                            color: myColor,
+                            fontFeatures: const <FontFeature>[
+                              FontFeature.enable('aaaa')
+                            ],
+                          ),
                         ),
                       ),
                     )

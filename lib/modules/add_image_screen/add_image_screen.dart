@@ -1,8 +1,10 @@
+import 'dart:ui';
+
 import 'package:academic_calendar/cubit/admin_cubit.dart';
 import 'package:academic_calendar/cubit/admin_states.dart';
 import 'package:academic_calendar/generated/l10n.dart';
-import 'package:academic_calendar/modules/add_image_screen/wisgets/Item_banner_widget.dart';
-import 'package:academic_calendar/modules/add_image_screen/wisgets/alert_add_banner_widget.dart';
+import 'package:academic_calendar/modules/add_image_screen/widgets/Item_banner_widget.dart';
+import 'package:academic_calendar/modules/add_image_screen/widgets/alert_add_banner_widget.dart';
 import 'package:academic_calendar/shared/components.dart';
 import 'package:academic_calendar/shared/constants.dart';
 import 'package:flutter/foundation.dart';
@@ -51,7 +53,12 @@ class _AddImageScreenState extends State<AddImageScreen> {
         var banners = AdminCubit.get(context).banners;
         return Scaffold(
           appBar: AppBar(
-            title: Text(S.of(context).addimage),
+            title: Text(
+              S.of(context).addimage,
+              style: const TextStyle(
+                fontFeatures: <FontFeature>[FontFeature.enable('aaaa')],
+              ),
+            ),
             actions: [
               Padding(
                 padding: const EdgeInsets.only(left: 15, right: 15),
@@ -73,6 +80,9 @@ class _AddImageScreenState extends State<AddImageScreen> {
                       style: TextStyle(
                         color: myColor,
                         fontSize: 15,
+                        fontFeatures: const <FontFeature>[
+                          FontFeature.enable('aaaa')
+                        ],
                       ),
                       textAlign: TextAlign.center,
                     ),
@@ -88,7 +98,12 @@ class _AddImageScreenState extends State<AddImageScreen> {
                       child: Text(
                         S.of(context).nobanners,
                         style: const TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          fontFeatures: <FontFeature>[
+                            FontFeature.enable('aaaa')
+                          ],
+                        ),
                       ),
                     )
                   : Center(

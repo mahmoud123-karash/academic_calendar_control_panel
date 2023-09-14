@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import
 
+import 'dart:ui';
+
 import 'package:academic_calendar/shared/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -16,10 +18,12 @@ ThemeData lightmode = ThemeData(
   drawerTheme: DrawerThemeData(backgroundColor: Colors.white, elevation: 0.0),
   primarySwatch: Colors.green,
   textTheme: TextTheme(
-    bodyMedium: TextStyle(color: Colors.black),
+    bodyMedium: TextStyle(
+        color: Colors.black,
+        fontFeatures: const <FontFeature>[FontFeature.enable('aaaa')]),
     bodyLarge: TextStyle(
-      color: Colors.black,
-    ),
+        color: Colors.black,
+        fontFeatures: const <FontFeature>[FontFeature.enable('aaaa')]),
   ),
   scaffoldBackgroundColor: Colors.white,
   appBarTheme: AppBarTheme(
@@ -66,8 +70,14 @@ ThemeData darkmode = ThemeData(
   ),
   primarySwatch: Colors.green,
   textTheme: TextTheme(
-    bodyMedium: TextStyle(color: Colors.white),
-    bodyLarge: TextStyle(color: Colors.white),
+    bodyMedium: TextStyle(
+      color: Colors.white,
+      fontFeatures: const <FontFeature>[FontFeature.enable('aaaa')],
+    ),
+    bodyLarge: TextStyle(
+      color: Colors.white,
+      fontFeatures: const <FontFeature>[FontFeature.enable('aaaa')],
+    ),
   ),
   scaffoldBackgroundColor: darkbackground,
   appBarTheme: AppBarTheme(

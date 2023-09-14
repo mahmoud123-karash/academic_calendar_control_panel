@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:academic_calendar/shared/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +22,7 @@ class ButtonWidget extends StatelessWidget {
           style: TextStyle(
             color: myColor,
             fontSize: 20,
+            fontFeatures: const <FontFeature>[FontFeature.enable('aaaa')],
           ),
           textAlign: TextAlign.center,
         ),

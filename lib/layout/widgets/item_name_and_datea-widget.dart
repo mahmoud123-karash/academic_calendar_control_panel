@@ -1,5 +1,7 @@
 // ignore_for_file: file_names
 
+import 'dart:ui';
+
 import 'package:academic_calendar/models/event_model.dart';
 import 'package:academic_calendar/shared/constants.dart';
 import 'package:flutter/material.dart';
@@ -18,24 +20,28 @@ class ItemNameAndDateWidget extends StatelessWidget {
         Text(
           event.title!,
           style: TextStyle(
-            color: myColor,
-            fontSize: size.width > 700 ? 25 : 20,
-            fontWeight: FontWeight.w500,
-          ),
+              color: myColor,
+              fontSize: size.width > 700 ? 25 : 20,
+              fontWeight: FontWeight.w500,
+              fontFeatures: const <FontFeature>[FontFeature.enable('aaaa')]),
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
         ),
         Text(
           '${event.dateM}',
           style: TextStyle(
-              fontSize: size.width > 700 ? 18 : 15,
-              fontWeight: FontWeight.w600),
+            fontSize: size.width > 700 ? 18 : 15,
+            fontWeight: FontWeight.w600,
+            fontFeatures: const <FontFeature>[FontFeature.enable('aaaa')],
+          ),
         ),
         Text(
           '${event.dateJ}',
           style: TextStyle(
-              fontSize: size.width > 700 ? 18 : 15,
-              fontWeight: FontWeight.w600),
+            fontSize: size.width > 700 ? 18 : 15,
+            fontWeight: FontWeight.w600,
+            fontFeatures: const <FontFeature>[FontFeature.enable('aaaa')],
+          ),
         ),
       ],
     );

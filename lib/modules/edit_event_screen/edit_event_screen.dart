@@ -75,7 +75,7 @@ class _EditEventDetailsState extends State<EditEventDetails> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    if (widget.event.image != '')
+                    if (widget.event.image != '' || pickedimage != null)
                       ImageContainerWidget(
                         size: size,
                         image: webimage != Uint8List(8) && pickedimage != null
@@ -88,7 +88,9 @@ class _EditEventDetailsState extends State<EditEventDetails> {
                       height: 15,
                     ),
                     ButtonWidget(
-                      text: widget.event.image != "" ? 'تغيير' : 'اختر صورة',
+                      text: widget.event.image != "" || pickedimage != null
+                          ? 'تغيير'
+                          : 'اختر صورة',
                       onprssed: () {
                         AdminCubit.get(context).selectimage();
                       },

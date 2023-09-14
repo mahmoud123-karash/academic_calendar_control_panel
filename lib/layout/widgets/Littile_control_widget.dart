@@ -1,5 +1,7 @@
 // ignore_for_file: file_names
 
+import 'dart:ui';
+
 import 'package:academic_calendar/generated/l10n.dart';
 import 'package:academic_calendar/modules/add_event_screen/add_event_screen.dart';
 import 'package:academic_calendar/shared/components.dart';
@@ -20,12 +22,18 @@ class ListTileControlWidget extends StatelessWidget {
             children: [
               Text(
                 S.of(context).control,
-                style:
-                    const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
+                  fontFeatures: <FontFeature>[FontFeature.enable('aaaa')],
+                ),
               ),
               Text(
                 S.of(context).message,
-                style: TextStyle(color: myColor),
+                style: TextStyle(
+                  color: myColor,
+                  fontFeatures: const <FontFeature>[FontFeature.enable('aaaa')],
+                ),
               ),
             ],
           ),
@@ -39,7 +47,12 @@ class ListTileControlWidget extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 S.of(context).mon,
-                style: TextStyle(color: myColor),
+                style: TextStyle(
+                  color: myColor,
+                  fontFeatures: const <FontFeature>[
+                    FontFeature.enable('aaaa'),
+                  ],
+                ),
               ),
             ),
           )

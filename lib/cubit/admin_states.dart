@@ -8,6 +8,8 @@ class ChangeAppThemeState extends AdminStates {}
 
 class HiddenPassState extends AdminStates {}
 
+class SuccessLogoutState extends AdminStates {}
+
 //pick image
 class LoadingPickImageState extends AdminStates {}
 

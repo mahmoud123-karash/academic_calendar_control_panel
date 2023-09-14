@@ -50,6 +50,7 @@ class MyApp extends StatelessWidget {
         builder: (context, state) {
           bool isbark = AdminCubit.get(context).isdark;
           return MaterialApp(
+            title: 'التقويم الدراسي',
             locale: const Locale('ar'),
             localizationsDelegates: const [
               S.delegate,

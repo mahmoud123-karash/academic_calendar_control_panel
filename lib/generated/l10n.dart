@@ -609,6 +609,46 @@ class S {
       args: [],
     );
   }
+
+  /// ``
+  String get datej {
+    return Intl.message(
+      '',
+      name: 'datej',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get datem {
+    return Intl.message(
+      '',
+      name: 'datem',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get okt {
+    return Intl.message(
+      '',
+      name: 'okt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ``
+  String get searchm {
+    return Intl.message(
+      '',
+      name: 'searchm',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

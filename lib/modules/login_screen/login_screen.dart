@@ -1,9 +1,12 @@
+import 'dart:ui';
+
 import 'package:academic_calendar/cubit/admin_cubit.dart';
 import 'package:academic_calendar/cubit/admin_states.dart';
 import 'package:academic_calendar/generated/l10n.dart';
 import 'package:academic_calendar/layout/layout.dart';
 import 'package:academic_calendar/models/shared_preference.dart';
 import 'package:academic_calendar/modules/forget_pass_screen/forget_pass_screen.dart';
+import 'package:academic_calendar/modules/login_screen/widgets/login_button_widget.dart';
 import 'package:academic_calendar/shared/components.dart';
 import 'package:academic_calendar/shared/constants.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +23,13 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController passcontroller = TextEditingController();
   var formkey = GlobalKey<FormState>();
+
+  @override
+  void dispose() {
+    emailcontroller.dispose();
+    passcontroller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +91,12 @@ class _LoginScreenState extends State<LoginScreen> {
                         },
                         controller: emailcontroller,
                         decoration: InputDecoration(
-                          labelStyle: const TextStyle(),
+                          labelStyle: const TextStyle(
+                              fontFeatures: <FontFeature>[
+                                FontFeature.enable('aaaa')
+                              ],
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500),
                           labelText: S.of(context).email,
                           prefixIcon: const Icon(Icons.email_outlined),
                         ),
@@ -104,7 +119,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         obscureText: AdminCubit.get(context).hiddenPass,
                         decoration: InputDecoration(
                           labelText: S.of(context).passl,
-                          labelStyle: const TextStyle(),
+                          labelStyle: const TextStyle(
+                            fontFeatures: <FontFeature>[
+                              FontFeature.enable('aaaa')
+                            ],
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                          ),
                           prefixIcon: Icon(
                             Icons.lock,
                             color: myColor,
@@ -133,30 +154,18 @@ class _LoginScreenState extends State<LoginScreen> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: SizedBox(
-                      width: size.width / 2,
-                      child: state is LoadingLoginState
-                          ? const Center(child: CircularProgressIndicator())
-                          : MaterialButton(
-                              color: myColor,
-                              minWidth: double.infinity,
-                              onPressed: () {
-                                if (formkey.currentState!.validate()) {
-                                  AdminCubit.get(context).loginUser(
-                                      email: emailcontroller.text,
-                                      password: passcontroller.text);
-                                }
-                              },
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: Text(
-                                S.of(context).login,
-                                style: const TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                    ),
+                        width: size.width / 2,
+                        child: state is LoadingLoginState
+                            ? const Center(child: CircularProgressIndicator())
+                            : LoginButtonWidget(
+                                onpressed: () {
+                                  if (formkey.currentState!.validate()) {
+                                    AdminCubit.get(context).loginUser(
+                                        email: emailcontroller.text,
+                                        password: passcontroller.text);
+                                  }
+                                },
+                              )),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -167,10 +176,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Text(
                         S.of(context).fpass,
                         style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                            color: myColor,
-                            decoration: TextDecoration.underline),
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: myColor,
+                          decoration: TextDecoration.underline,
+                          fontFeatures: const <FontFeature>[
+                            FontFeature.enable('aaaa')
+                          ],
+                        ),
                       ),
                     ),
                   ),

@@ -1,5 +1,7 @@
 // ignore_for_file: file_names
 
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class ListTileWidget extends StatelessWidget {
@@ -15,7 +17,10 @@ class ListTileWidget extends StatelessWidget {
       onTap: ontap,
       title: Text(
         text,
-        style: const TextStyle(fontSize: 20),
+        style: const TextStyle(
+          fontSize: 20,
+          fontFeatures: <FontFeature>[FontFeature.enable('aaaa')],
+        ),
       ),
       leading: Icon(
         icon,

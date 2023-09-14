@@ -30,6 +30,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "change": MessageLookupByLibrary.simpleMessage("تغيير"),
         "control": MessageLookupByLibrary.simpleMessage("لوحة التحكم"),
         "date": MessageLookupByLibrary.simpleMessage("تاريخ اليوم"),
+        "datej": MessageLookupByLibrary.simpleMessage("التاريخ الهجرى"),
+        "datem": MessageLookupByLibrary.simpleMessage("التاريخ الميلادى"),
         "delete": MessageLookupByLibrary.simpleMessage("حذف الحدث"),
         "deletem": MessageLookupByLibrary.simpleMessage("هل تريد حذف الحدث؟"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكترونى"),
@@ -70,6 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "notit":
             MessageLookupByLibrary.simpleMessage("من فضلك أدخل نص الإشعار"),
         "ok": MessageLookupByLibrary.simpleMessage("تأكيد"),
+        "okt": MessageLookupByLibrary.simpleMessage("تم"),
         "pass": MessageLookupByLibrary.simpleMessage("تعيين كلمة المرور"),
         "passf": MessageLookupByLibrary.simpleMessage("تعيين كلمة المرور"),
         "passl": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
@@ -77,6 +80,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "research":
             MessageLookupByLibrary.simpleMessage("لا يوجد أحداث لهذا العام"),
         "search": MessageLookupByLibrary.simpleMessage("بحث"),
+        "searchm":
+            MessageLookupByLibrary.simpleMessage("من فضلك أدخل العام للبحث"),
         "searchp": MessageLookupByLibrary.simpleMessage(
             "أدخل العام الدراسي ثم إضغط بحث"),
         "send": MessageLookupByLibrary.simpleMessage("إرسال"),

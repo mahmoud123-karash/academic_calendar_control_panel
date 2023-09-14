@@ -6,6 +6,7 @@ import 'package:academic_calendar/layout/widgets/date_widget.dart';
 import 'package:academic_calendar/layout/widgets/drawer_widget.dart';
 import 'package:academic_calendar/layout/widgets/event_item_widget.dart';
 import 'package:academic_calendar/layout/widgets/header_widget.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,6 +19,15 @@ class LayoutScreen extends StatefulWidget {
 
 class _LayoutScreenState extends State<LayoutScreen> {
   final GlobalKey<ScaffoldState> layoutkey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    AdminCubit.get(context).pickedimage = null;
+    AdminCubit.get(context).webimage = Uint8List(8);
+    AdminCubit.get(context).dateTime = '';
+    AdminCubit.get(context).jHijridate = '';
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

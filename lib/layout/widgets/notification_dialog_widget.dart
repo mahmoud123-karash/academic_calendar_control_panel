@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:academic_calendar/cubit/admin_cubit.dart';
 import 'package:academic_calendar/cubit/admin_states.dart';
 import 'package:academic_calendar/generated/l10n.dart';
@@ -44,6 +46,7 @@ class _NotificationDialogWidgetState extends State<NotificationDialogWidget> {
           S.of(context).sendnoti,
           style: TextStyle(
             color: !widget.isdark ? Colors.white : Colors.black,
+            fontFeatures: const <FontFeature>[FontFeature.enable('aaaa')],
           ),
         ),
         content: SizedBox(
@@ -65,6 +68,10 @@ class _NotificationDialogWidgetState extends State<NotificationDialogWidget> {
             },
             child: Text(
               S.of(context).no,
+              style: const TextStyle(
+                fontFeatures: <FontFeature>[FontFeature.enable('aaaa')],
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
           TextButton(
@@ -81,6 +88,10 @@ class _NotificationDialogWidgetState extends State<NotificationDialogWidget> {
                 ? const CircularProgressIndicator()
                 : Text(
                     S.of(context).send,
+                    style: const TextStyle(
+                      fontFeatures: <FontFeature>[FontFeature.enable('aaaa')],
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
           )
         ],

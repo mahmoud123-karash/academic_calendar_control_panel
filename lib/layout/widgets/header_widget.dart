@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:academic_calendar/generated/l10n.dart';
+import 'package:academic_calendar/layout/widgets/date_now_widget.dart';
 import 'package:academic_calendar/shared/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -36,19 +39,22 @@ class HeaderWidget extends StatelessWidget {
             style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w600,
+              fontFeatures: <FontFeature>[FontFeature.enable('aaaa')],
             ),
           ),
           const Spacer(),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text(
-              date,
-              style: const TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w300,
-              ),
+            child: IconButton(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) => const DateNowWidget(),
+                );
+              },
+              icon: const Icon(Icons.calendar_month_outlined),
             ),
-          ),
+          )
         ],
       ),
     );
