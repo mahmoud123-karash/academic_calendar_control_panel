@@ -115,18 +115,21 @@ class _EditEventDetailsState extends State<EditEventDetails> {
                               if (formkey.currentState!.validate()) {
                                 if (pickedimage != null) {
                                   AdminCubit.get(context).updateEventWithImage(
-                                    title: namecontroller.text,
-                                    dateJ:
-                                        AdminCubit.get(context).dateTime != ''
-                                            ? AdminCubit.get(context).dateTime
-                                            : widget.event.dateJ!,
-                                    dateM:
-                                        AdminCubit.get(context).jHijridate != ''
-                                            ? AdminCubit.get(context).jHijridate
-                                            : widget.event.dateM!,
-                                    description: descontroller.text,
-                                    uuid: widget.event.id!,
-                                  );
+                                      title: namecontroller.text,
+                                      dateJ:
+                                          AdminCubit.get(context).dateTime != ''
+                                              ? AdminCubit.get(context).dateTime
+                                              : widget.event.dateJ!,
+                                      dateM: AdminCubit.get(context)
+                                                  .jHijridate !=
+                                              ''
+                                          ? AdminCubit.get(context).jHijridate
+                                          : widget.event.dateM!,
+                                      description: descontroller.text,
+                                      uuid: widget.event.id!,
+                                      dateO: AdminCubit.get(context).dateO != ''
+                                          ? AdminCubit.get(context).dateO
+                                          : widget.event.dateO!);
                                   AdminCubit.get(context).pickedimage = null;
                                   AdminCubit.get(context).webimage =
                                       Uint8List(8);
@@ -145,6 +148,9 @@ class _EditEventDetailsState extends State<EditEventDetails> {
                                     description: descontroller.text,
                                     uuid: widget.event.id!,
                                     image: widget.event.image!,
+                                    dateO: AdminCubit.get(context).dateO != ''
+                                        ? AdminCubit.get(context).dateO
+                                        : widget.event.dateO!,
                                   );
                                   AdminCubit.get(context).pickedimage = null;
                                   AdminCubit.get(context).webimage =

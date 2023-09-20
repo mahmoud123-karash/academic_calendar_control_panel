@@ -48,6 +48,7 @@ class EventInfoWidget extends StatelessWidget {
                 String date = '$formattedDate - $day $mounth $year';
                 AdminCubit.get(context).dateTime = formattedDate;
                 AdminCubit.get(context).jHijridate = '$day $mounth $year';
+                AdminCubit.get(context).dateO = "${datetime.date}";
                 datecontroller.text = date;
               },
               onOk: (datetime) {

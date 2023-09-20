@@ -17,15 +17,19 @@ class ItemNameAndDateWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          event.title!,
-          style: TextStyle(
-              color: myColor,
-              fontSize: size.width > 700 ? 25 : 20,
-              fontWeight: FontWeight.w500,
-              fontFeatures: const <FontFeature>[FontFeature.enable('aaaa')]),
-          maxLines: 2,
-          overflow: TextOverflow.ellipsis,
+        Container(
+          constraints: BoxConstraints(
+              maxWidth: size.width > 900 ? size.width - 400 : size.width - 120),
+          child: Text(
+            event.title!,
+            style: TextStyle(
+                color: myColor,
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+                fontFeatures: const <FontFeature>[FontFeature.enable('aaaa')]),
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+          ),
         ),
         Text(
           '${event.dateM}',

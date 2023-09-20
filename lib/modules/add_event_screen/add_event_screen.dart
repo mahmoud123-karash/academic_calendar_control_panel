@@ -128,17 +128,21 @@ class _AddEventScreenState extends State<AddEventScreen> {
                                                   var uuid = const Uuid().v4();
                                                   AdminCubit.get(context)
                                                       .addEvenTwiyhoutImage(
-                                                    title: namecontroller.text,
-                                                    dateJ:
-                                                        AdminCubit.get(context)
-                                                            .dateTime,
-                                                    dateM:
-                                                        AdminCubit.get(context)
-                                                            .jHijridate,
-                                                    description:
-                                                        descontroller.text,
-                                                    uuid: uuid,
-                                                  );
+                                                          title: namecontroller
+                                                              .text,
+                                                          dateJ: AdminCubit.get(
+                                                                  context)
+                                                              .dateTime,
+                                                          dateM: AdminCubit.get(
+                                                                  context)
+                                                              .jHijridate,
+                                                          description:
+                                                              descontroller
+                                                                  .text,
+                                                          uuid: uuid,
+                                                          dateO: AdminCubit.get(
+                                                                  context)
+                                                              .dateO);
                                                   AdminCubit.get(context)
                                                       .pickedimage = null;
                                                   AdminCubit.get(context)
@@ -152,12 +156,12 @@ class _AddEventScreenState extends State<AddEventScreen> {
                                 } else {
                                   var uuid = const Uuid().v4();
                                   AdminCubit.get(context).addNewEvent(
-                                    title: namecontroller.text,
-                                    dateJ: AdminCubit.get(context).dateTime,
-                                    dateM: AdminCubit.get(context).jHijridate,
-                                    description: descontroller.text,
-                                    uuid: uuid,
-                                  );
+                                      title: namecontroller.text,
+                                      dateJ: AdminCubit.get(context).dateTime,
+                                      dateM: AdminCubit.get(context).jHijridate,
+                                      description: descontroller.text,
+                                      uuid: uuid,
+                                      dateO: AdminCubit.get(context).dateO);
                                   AdminCubit.get(context).pickedimage = null;
                                   AdminCubit.get(context).webimage =
                                       Uint8List(8);

@@ -33,7 +33,6 @@ class EventItemWidget extends StatelessWidget {
           );
         },
         child: Container(
-          constraints: BoxConstraints(maxWidth: size.width),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: isdark ? Colors.grey[300] : Colors.white.withOpacity(0.1),

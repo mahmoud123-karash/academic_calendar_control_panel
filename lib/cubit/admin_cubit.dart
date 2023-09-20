@@ -105,6 +105,7 @@ class AdminCubit extends Cubit<AdminStates> {
 
   String jHijridate = '';
   String dateTime = '';
+  String dateO = '';
   String year = JHijri.now().year.toString();
 
   void addNewEvent({
@@ -113,6 +114,7 @@ class AdminCubit extends Cubit<AdminStates> {
     required String dateM,
     required String description,
     required String uuid,
+    required String dateO,
   }) {
     emit(LoadingAddEventState());
     if (!kIsWeb) {
@@ -124,12 +126,14 @@ class AdminCubit extends Cubit<AdminStates> {
           .then((p0) {
         p0.ref.getDownloadURL().then((value) {
           EventModel model = EventModel(
-              title: title,
-              image: pickedimage == null ? '' : value,
-              id: uuid,
-              description: description,
-              dateJ: dateJ,
-              dateM: dateM);
+            title: title,
+            image: pickedimage == null ? '' : value,
+            id: uuid,
+            description: description,
+            dateJ: dateJ,
+            dateM: dateM,
+            dateO: dateO,
+          );
           FirebaseFirestore.instance
               .collection(year)
               .doc(uuid)
@@ -158,12 +162,14 @@ class AdminCubit extends Cubit<AdminStates> {
           .then((p0) {
         p0.ref.getDownloadURL().then((value) {
           EventModel model = EventModel(
-              title: title,
-              image: value,
-              id: uuid,
-              description: description,
-              dateJ: dateJ,
-              dateM: dateM);
+            title: title,
+            image: value,
+            id: uuid,
+            description: description,
+            dateJ: dateJ,
+            dateM: dateM,
+            dateO: dateO,
+          );
           FirebaseFirestore.instance
               .collection(year)
               .doc(uuid)
@@ -186,21 +192,23 @@ class AdminCubit extends Cubit<AdminStates> {
     }
   }
 
-  void addEvenTwiyhoutImage({
-    required String title,
-    required String dateJ,
-    required String dateM,
-    required String description,
-    required String uuid,
-  }) {
+  void addEvenTwiyhoutImage(
+      {required String title,
+      required String dateJ,
+      required String dateM,
+      required String description,
+      required String uuid,
+      required String dateO}) {
     emit(LoadingAddEventState());
     EventModel model = EventModel(
-        title: title,
-        image: '',
-        id: uuid,
-        description: description,
-        dateJ: dateJ,
-        dateM: dateM);
+      title: title,
+      image: '',
+      id: uuid,
+      description: description,
+      dateJ: dateJ,
+      dateM: dateM,
+      dateO: dateO,
+    );
     FirebaseFirestore.instance
         .collection(year)
         .doc(uuid)
@@ -221,7 +229,7 @@ class AdminCubit extends Cubit<AdminStates> {
     emit(LoadingGetEventsState());
     FirebaseFirestore.instance
         .collection(year)
-        .orderBy('dateM', descending: false)
+        .orderBy('dateO', descending: false)
         .snapshots()
         .listen((event) {
       events = [];
@@ -249,13 +257,13 @@ class AdminCubit extends Cubit<AdminStates> {
     });
   }
 
-  void updateEventWithImage({
-    required String title,
-    required String dateJ,
-    required String dateM,
-    required String description,
-    required String uuid,
-  }) {
+  void updateEventWithImage(
+      {required String title,
+      required String dateJ,
+      required String dateM,
+      required String description,
+      required String uuid,
+      required String dateO}) {
     emit(LoadingUpdateEventState());
     if (kIsWeb) {
       firebase_storage.FirebaseStorage.instance
@@ -266,12 +274,14 @@ class AdminCubit extends Cubit<AdminStates> {
           .then((value) {
         value.ref.getDownloadURL().then((value) {
           EventModel model = EventModel(
-              title: title,
-              image: value,
-              id: uuid,
-              description: description,
-              dateJ: dateJ,
-              dateM: dateM);
+            title: title,
+            image: value,
+            id: uuid,
+            description: description,
+            dateJ: dateJ,
+            dateM: dateM,
+            dateO: dateO,
+          );
           FirebaseFirestore.instance
               .collection(year)
               .doc(uuid)
@@ -300,12 +310,14 @@ class AdminCubit extends Cubit<AdminStates> {
           .then((value) {
         value.ref.getDownloadURL().then((value) {
           EventModel model = EventModel(
-              title: title,
-              image: value,
-              id: uuid,
-              description: description,
-              dateJ: dateJ,
-              dateM: dateM);
+            title: title,
+            image: value,
+            id: uuid,
+            description: description,
+            dateJ: dateJ,
+            dateM: dateM,
+            dateO: dateO,
+          );
           FirebaseFirestore.instance
               .collection(year)
               .doc(uuid)
@@ -328,13 +340,15 @@ class AdminCubit extends Cubit<AdminStates> {
     }
   }
 
-  void updateEventWithoutImage(
-      {required String title,
-      required String dateJ,
-      required String dateM,
-      required String description,
-      required String uuid,
-      required String image}) {
+  void updateEventWithoutImage({
+    required String title,
+    required String dateJ,
+    required String dateM,
+    required String description,
+    required String uuid,
+    required String image,
+    required String dateO,
+  }) {
     emit(LoadingUpdateEventState());
     EventModel model = EventModel(
         title: title,
@@ -342,7 +356,8 @@ class AdminCubit extends Cubit<AdminStates> {
         id: uuid,
         description: description,
         dateJ: dateJ,
-        dateM: dateM);
+        dateM: dateM,
+        dateO: dateO);
     FirebaseFirestore.instance
         .collection(year)
         .doc(uuid)
@@ -365,7 +380,7 @@ class AdminCubit extends Cubit<AdminStates> {
     emit(LoadingGetEventsState());
     FirebaseFirestore.instance
         .collection(year)
-        .orderBy('dateM', descending: false)
+        .orderBy('dateO', descending: false)
         .snapshots()
         .listen((event) {
       searchevents = [];
