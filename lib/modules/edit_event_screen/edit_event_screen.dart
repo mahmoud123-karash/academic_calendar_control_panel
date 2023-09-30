@@ -41,6 +41,7 @@ class _EditEventDetailsState extends State<EditEventDetails> {
     AdminCubit.get(context).webimage = Uint8List(8);
     AdminCubit.get(context).dateTime = '';
     AdminCubit.get(context).jHijridate = '';
+    AdminCubit.get(context).dateO = '';
     namecontroller.text = widget.event.title!;
     descontroller.text = widget.event.description!;
     datecontroller.text = '${widget.event.dateJ}- ${widget.event.dateM}';

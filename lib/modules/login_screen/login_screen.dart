@@ -154,18 +154,24 @@ class _LoginScreenState extends State<LoginScreen> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: SizedBox(
-                        width: size.width / 2,
-                        child: state is LoadingLoginState
-                            ? const Center(child: CircularProgressIndicator())
-                            : LoginButtonWidget(
-                                onpressed: () {
-                                  if (formkey.currentState!.validate()) {
+                      width: size.width / 2,
+                      child: state is LoadingLoginState
+                          ? const Center(child: CircularProgressIndicator())
+                          : LoginButtonWidget(
+                              onpressed: () {
+                                if (formkey.currentState!.validate()) {
+                                  if (emailcontroller.text ==
+                                      'Abk.almalki.2015@gmail.com') {
                                     AdminCubit.get(context).loginUser(
                                         email: emailcontroller.text,
                                         password: passcontroller.text);
+                                  } else {
+                                    myToast(message: S.of(context).loginf);
                                   }
-                                },
-                              )),
+                                }
+                              },
+                            ),
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
